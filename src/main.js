@@ -8,9 +8,7 @@ pdfjsLib.GlobalWorkerOptions.workerSrc =
    PDFs (EDICIONES)
 ========================= */
 const pdfs = [
-  { title: "Edición Enero", file: "revistas/edicion-2025.pdf" },
-  { title: "Edición Febrero", file: "revista/edicion-2025.pdf" },
-  { title: "Edición Marzo", file: "assets/revista-marzo.pdf" }
+  { title: "Edición Enero", file: "src/revistas/edicion-2025.pdf" }
 ];
 
 let currentPDF = 0;
