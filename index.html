@@ -59,9 +59,9 @@
 
       @media (max-width: 600px) {
         .sponsors .grid {
-          grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
-          gap: 2rem !important;
-          max-width: 300px;
+          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          gap: 3rem !important;
+          max-width: max-content;
           margin: 0 auto;
         }
       }
@@ -119,6 +119,11 @@
         #pdf-canvas {
             width: 50vw;
         }
+
+        .texto-grid {
+          font-size: 28px;
+          margin-bottom: 30px;
+        }
       }
 
       @media (max-width: 480px) {
@@ -153,10 +158,21 @@
             height: 25px;
             font-size: 16px;
         }
+
+        .texto-grid {
+          font-size: 28px;
+          margin-bottom: 30px;
+        }
+
+        .card {
+          height: 120px;
+          width: 120px;
+        }
+
       }
     </style>
   </head>
-  <body class="overflow-x-hidden">
+  <body class="overflow-x-hidden bg-darkblue">
     <section class="landing">
         <div class="w-screen h-lvh flex flex-col items-center justify-center"> <!-- IMAGEN, LOGO, CONTACTO -->         
 
@@ -294,23 +310,23 @@
 
             </div> <!-- CIERRE CARRUSEL -->
 
-            <div class="sponsors flex flex-col items-center"> <!-- SPONSORS GRID--> 
-                <h1 class="bg-gradient-to-tr from-slate-50 to-slate-500 bg-clip-text text-transparent text-4xl font-inter font-bold pt-20 leading-relaxed shadow-inner text-center">NUESTROS SPONSORS</h1>
-                <div class="grid grid-cols-4 gap-24 w-vw mt-12 h-max gap-y-12 pb-40">
-                    <div class="h-38 w-38 bg-darkblue"></div>
-                    <div class="h-38 w-38 bg-darkblue"></div>
-                    <div class="h-38 w-38 bg-darkblue"></div>
-                    <div class="h-38 w-38 bg-darkblue"></div>
-                    <div class="h-38 w-38 bg-darkblue"></div>
-                    <div class="h-38 w-38 bg-darkblue"></div>
-                    <div class="h-38 w-38 bg-darkblue"></div>
-                    <div class="h-38 w-38 bg-darkblue"></div>
+            <div class="sponsors flex flex-col items-center px-4 sm:px-8"> <!-- SPONSORS GRID--> 
+                <h1 class="bg-gradient-to-tr from-slate-50 to-slate-500 bg-clip-text text-transparent text-4xl font-inter font-bold pt-20 leading-relaxed shadow-inner text-center texto-grid">NUESTROS SPONSORS</h1>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8 lg:gap-24 mt-12 h-max pb-40 grid-sponsors max-w-full">
+                    <div class="h-38 w-38 bg-darkblue card"></div>
+                    <div class="h-38 w-38 bg-darkblue card"></div>
+                    <div class="h-38 w-38 bg-darkblue card"></div>
+                    <div class="h-38 w-38 bg-darkblue card"></div>
+                    <div class="h-38 w-38 bg-darkblue card"></div>
+                    <div class="h-38 w-38 bg-darkblue card"></div>
+                    <div class="h-38 w-38 bg-darkblue card"></div>
+                    <div class="h-38 w-38 bg-darkblue card"></div>
                 </div>
             </div>
         </div> <!-- CIERRE FONDO AZUL OSCURO -->
     </section>
 
-    <footer class="bg-darkblue w-full h-max p-15 font-inter flex justify-center items-center flex-col">
+    <footer class="bg-darkblue w-full h-max p-15 font-inter flex justify-center items-center flex-col scale-x-105">
         <p>Made by <a href="https://instagram.com/jhxzn.kss" class="font-bold underline">@Jhoan</a></p>
         <p>© 2025. All rights reserved.</p>
     </footer>
