@@ -42,7 +42,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/5.4.149/pdf_viewer.min.css" integrity="sha512-qbvpAGzPFbd9HG4VorZWXYAkAnbwKIxiLinTA1RW8KGJEZqYK04yjvd+Felx2HOeKPDKVLetAqg8RIJqHewaIg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <style>
-      /* Ajustes responsive solo para móviles y tablets */
+      /* Grid responsive para sponsors */
+      @media (max-width: 1200px) {
+        .sponsors .grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+          gap: 3rem !important;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .sponsors .grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          gap: 2.5rem !important;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .sponsors .grid {
+          grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+          gap: 2rem !important;
+          max-width: 300px;
+          margin: 0 auto;
+        }
+      }
+
+      /* Ajustes mínimos para móviles */
       @media (max-width: 768px) {
         .logo img {
           width: 320px !important;
@@ -91,6 +115,12 @@
         }
       }
       
+      @media (max-width: 680px) {
+        #pdf-canvas {
+            width: 50vw;
+        }
+      }
+
       @media (max-width: 480px) {
         .logo img {
           width: 240px !important;
@@ -112,12 +142,23 @@
         .download-btn {
           width: 180px !important;
         }
+
+        #pdf-canvas {
+            width: 50vw;
+            margin-inline: 4px;
+        }
+
+        .flecha {
+            width: 25px;
+            height: 25px;
+            font-size: 16px;
+        }
       }
     </style>
   </head>
   <body class="overflow-x-hidden">
     <section class="landing">
-        <div class="w-screen h-screen flex flex-col items-center justify-center border-b-2 border-black"> <!-- IMAGEN, LOGO, CONTACTO -->         
+        <div class="w-screen h-screen flex flex-col items-center justify-center"> <!-- IMAGEN, LOGO, CONTACTO -->         
 
             <!-- FONDO -->
             <div class="absolute inset-0 bg-[url(assets/fondo.webp)] bg-cover bg-center blur-sm w-full scale-105 overflow-hidden"></div>
@@ -130,7 +171,7 @@
                         <img src="src/assets/logo.svg" alt="Logo GUIARTE" class="w-125 h-auto mix-blend-exclusion p-5">
                 </div>
 
-                    <div class="contact flex flex-col gap-4 mt-5 items-center"> <!-- CONTACTO -->
+                    <div class="contact flex flex-col gap-4 mt-5 items-center animate-pulse-fade-in"> <!-- CONTACTO -->
                         <!-- Primera fila: Teléfono, WhatsApp, Email -->
                         <div class="flex gap-4">
                             <a href="tel:+573107283786" 
@@ -199,8 +240,8 @@
             </div> <!-- CIERRE CONTENEDOR -->
 
             <div class="arrow-section absolute bottom-10 flex flex-col items-center gap-2"> <!-- FLECHA -->
-                <p class="text-white/80 text-xl mb-3 font-inter shadow-inner">Explorar ediciones..</p>
-                    <svg class="w-8 h-8 text-white/80 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <p class="text-white/80 text-xl mb-5 font-inter shadow-inner">Explorar ediciones..</p>
+                    <svg class="w-8 h-8 text-white/80 animate-bounce2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
                     </svg>
             </div> <!-- CIERRE FLECHA -->
@@ -209,7 +250,7 @@
     </section>
     
     <section class="magazine flex flex-col gap-5 justify-around">
-        <div class="w-screen h-full scale-x-105 bg-darkblue"> <!-- FONDO AZUL OSCURO -->
+        <div class="w-screen h-full scale-x-105 bg-[url(assets/background.png)] bg-no-repeat bg-cover"> <!-- FONDO AZUL OSCURO -->
 
             <div class="flex flex-col gap-24"> <!-- CONTENEDOR TEXTO Y BOTON -->
                 <div class="max-w-2xl mx-auto text-center h-full"> <!-- TEXTO -->
@@ -218,31 +259,31 @@
                     </p>
                 </div> <!-- CIERRE TEXTO -->
 
-                <div class="download-btn w-52 h-12 bg-white flex p-2 cursor-pointer m-auto hover:bg-gray-100 transition text-center"> <!-- BOTON DESCARGA --> 
-                    <p class="w-full h-full font-inter tex-sm font-bold underline flex justify-center items-center text-black">Descargar ultima edición</p> 
+                <div class="download-btn w-xs h-12 bg-darkblue flex p-2 cursor-pointer m-auto hover:bg-white transition text-center mb-20 hover:text-darkblue text-white border-2 border-white"> <!-- BOTON DESCARGA --> 
+                    <a class="w-full h-full font-inter tex-sm font-bold flex justify-center items-center" href="src/revistas/edicion-2025.pdf" download="revista-guiarte">Descargar ultima edición</a> 
                 </div> <!-- CIERRE BOTON DESCARGA -->
             </div> <!-- CIERRE CONTENEDOR TEXTO Y BOTON -->
 
-            <div class="magazine carrousel w-full h-174 flex items-center justify-around relative"> <!-- CARRUSEL DE REVISTAS -->
+            <div class="magazine carrousel w-full h-174 flex justify-around"> <!-- CARRUSEL DE REVISTAS -->
 
                 <!-- CONTENEDOR REVISTA -->
-                    <div class="relative w-124 h-full flex items-center justify-center">
+                    <div class="relative w-max h-full flex items-center justify-center">
 
                         <!-- botón página anterior -->
                         <button
                             onclick="prevPage()"
-                            class="bg-white text-black p-2 text-sm rounded cursor-pointer hover:bg-gray-200 transition"
+                            class="bg-white/30 text-black text-lg rounded-full w-12 h-12 cursor-pointer hover:bg-gray-200 transition flecha"
                             aria-label="Página anterior">
                             <
                         </button>
 
                         <!-- canvas -->
-                        <canvas id="pdf-canvas" class="p-5 pt-20 h-full"></canvas>
+                        <canvas id="pdf-canvas" class="h-full mx-8 shadow-2xl shadow-white/80 border-2 border-white"></canvas>
 
                         <!-- botón página siguiente -->
                         <button
                             onclick="nextPage()"
-                            class="bg-white text-black text-sm rounded p-2 cursor-pointer hover:bg-gray-200 transition"
+                            class="bg-white/30 text-black text-lg rounded-full w-12 h-12 cursor-pointer hover:bg-gray-200 transition flecha"
                             aria-label="Página siguiente">
                             >
                         </button>
@@ -253,9 +294,57 @@
 
             </div> <!-- CIERRE CARRUSEL -->
 
+            <div class="sponsors flex flex-col items-center"> <!-- SPONSORS GRID--> 
+                <h1 class="bg-gradient-to-tr from-slate-50 to-slate-500 bg-clip-text text-transparent text-4xl font-inter font-bold pt-20 leading-relaxed shadow-inner text-center">NUESTROS SPONSORS</h1>
+                <div class="grid grid-cols-4 gap-24 w-vw mt-12 h-max gap-y-12 pb-40">
+                    <div class="h-38 w-38 bg-darkblue"></div>
+                    <div class="h-38 w-38 bg-darkblue"></div>
+                    <div class="h-38 w-38 bg-darkblue"></div>
+                    <div class="h-38 w-38 bg-darkblue"></div>
+                    <div class="h-38 w-38 bg-darkblue"></div>
+                    <div class="h-38 w-38 bg-darkblue"></div>
+                    <div class="h-38 w-38 bg-darkblue"></div>
+                    <div class="h-38 w-38 bg-darkblue"></div>
+                </div>
+            </div>
         </div> <!-- CIERRE FONDO AZUL OSCURO -->
     </section>
 
+    <footer class="bg-darkblue w-full h-max p-15 font-inter flex justify-center items-center flex-col">
+        <p>Made by <a href="https://instagram.com/jhxzn.kss" class="font-bold underline">@Jhoan</a></p>
+        <p>© 2025. All rights reserved.</p>
+    </footer>
+
+
     <script src="src/main.js" type="module"></script>
+
+    <script>
+      // Observer para animaciones con scroll (compatible con plugin de Tailwind)
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in-down');
+          }
+        });
+      }, observerOptions);
+
+      // Observar elementos cuando el DOM esté listo
+      document.addEventListener('DOMContentLoaded', () => {
+        const elementsToAnimate = document.querySelectorAll('.quote-text, .sponsors h1');
+        
+        elementsToAnimate.forEach(element => {
+          // Remover la clase de animación inicialmente
+          element.classList.remove('animate-fade-in-down');
+          // Observar el elemento
+          observer.observe(element);
+        });
+      });
+    </script>
   </body>
 </html>

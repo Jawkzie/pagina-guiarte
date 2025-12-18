@@ -1,8 +1,21 @@
 @import "tailwindcss";
+@plugin "@midudev/tailwind-animations";
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 @theme {
     --color-blackblue: #011627;
     --color-darkblue: #01101C;
     --font-inter: "Inter", sans-serif;
+    --animate-bounce2: bounce 1s ease-in-out infinite;
+
+    @keyframes bounce {
+    0%, 100% {
+        transform: translateY(-45%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+    }
 }
