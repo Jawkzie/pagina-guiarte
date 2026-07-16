@@ -268,15 +268,18 @@
     <section class="magazine flex flex-col gap-5 justify-around">
         <div class="w-screen h-full scale-x-105 bg-[url(assets/background.png)] bg-no-repeat bg-cover"> <!-- FONDO AZUL OSCURO -->
 
-            <div class="flex flex-col gap-24"> <!-- CONTENEDOR TEXTO Y BOTON -->
+            <div class="flex flex-col gap-8"> <!-- CONTENEDOR TEXTO Y BOTON -->
                 <div class="max-w-2xl mx-auto text-center h-full"> <!-- TEXTO -->
                     <p class="quote-text bg-gradient-to-tr from-slate-50 to-slate-500 bg-clip-text text-transparent text-4xl font-inter font-bold pt-20 leading-relaxed shadow-inner">
                         " Una VENTANA al turismo cultural, una revista que se extiende por toda la región samaria, que demuestra que lo bueno, también es noticia. "
                     </p>
                 </div> <!-- CIERRE TEXTO -->
 
+                <div class="download-btn w-xs h-12 bg-darkblue flex p-2 cursor-pointer m-auto hover:bg-white transition text-center hover:text-darkblue text-white border-2 border-white"> <!-- BOTON DESCARGA --> 
+                    <a class="w-full h-full font-inter tex-sm font-bold flex justify-center items-center" href="src/revistas/edicion-2025.pdf" download="revista-guiarte">Descargar edición anterior</a> 
+                </div> <!-- CIERRE BOTON DESCARGA -->
                 <div class="download-btn w-xs h-12 bg-darkblue flex p-2 cursor-pointer m-auto hover:bg-white transition text-center mb-20 hover:text-darkblue text-white border-2 border-white"> <!-- BOTON DESCARGA --> 
-                    <a class="w-full h-full font-inter tex-sm font-bold flex justify-center items-center" href="src/revistas/edicion-2025.pdf" download="revista-guiarte">Descargar ultima edición</a> 
+                    <a class="w-full h-full font-inter tex-sm font-bold flex justify-center items-center" href="src/revistas/revista-2026.pdf" download="revista-guiarte">Descargar ultima edición</a> 
                 </div> <!-- CIERRE BOTON DESCARGA -->
             </div> <!-- CIERRE CONTENEDOR TEXTO Y BOTON -->
 
@@ -294,7 +297,7 @@
                         </button>
 
                         <!-- canvas -->
-                        <canvas id="pdf-canvas" class="h-full mx-8 shadow-2xl shadow-white/80 border-2 border-white"></canvas>
+                        <canvas id="pdf-canvas" class="h-full mx-8"></canvas>
 
                         <!-- botón página siguiente -->
                         <button
@@ -310,26 +313,15 @@
 
             </div> <!-- CIERRE CARRUSEL -->
 
-            <div class="sponsors flex flex-col items-center px-4 sm:px-8"> <!-- SPONSORS GRID--> 
-                <h1 class="bg-gradient-to-tr from-slate-50 to-slate-500 bg-clip-text text-transparent text-4xl font-inter font-bold pt-20 leading-relaxed shadow-inner text-center texto-grid">NUESTROS SPONSORS</h1>
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8 lg:gap-24 mt-12 h-max pb-40 grid-sponsors max-w-full">
-                    <div class="h-38 w-38 bg-darkblue card"></div>
-                    <div class="h-38 w-38 bg-darkblue card"></div>
-                    <div class="h-38 w-38 bg-darkblue card"></div>
-                    <div class="h-38 w-38 bg-darkblue card"></div>
-                    <div class="h-38 w-38 bg-darkblue card"></div>
-                    <div class="h-38 w-38 bg-darkblue card"></div>
-                    <div class="h-38 w-38 bg-darkblue card"></div>
-                    <div class="h-38 w-38 bg-darkblue card"></div>
-                </div>
-            </div>
+            <footer class="bg-darkblue w-full h-max p-15 font-inter flex justify-center items-center flex-col scale-x-105 mt-12">
+              <p class="text-white">Made by <a href="https://instagram.com/jhxzn.kss" class="font-bold underline">@Jhoan</a></p>
+              <p class="text-white">© 2025. All rights reserved.</p>
+            </footer>  
+        
         </div> <!-- CIERRE FONDO AZUL OSCURO -->
     </section>
 
-    <footer class="bg-darkblue w-full h-max p-15 font-inter flex justify-center items-center flex-col scale-x-105">
-        <p class="text-white">Made by <a href="https://instagram.com/jhxzn.kss" class="font-bold underline">@Jhoan</a></p>
-        <p class="text-white">© 2025. All rights reserved.</p>
-    </footer>
+
 
 
     <script src="src/main.js" type="module"></script>
